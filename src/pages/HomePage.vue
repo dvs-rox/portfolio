@@ -1,8 +1,9 @@
 <template>
     <section class="home-page">
-        <Window v-for="win in windows" :window="win" :key="win._id" @minimizeWindow="onMinimizeWindow" v-show="!win.props.isMinimized" />
-        <Shortcut v-for="win in windows" :window="win" :key="win._id" @expandWindow="onExpandWindow"/>
-        <Taskbar :windows="windows" @expandWindow="toggleWindowMinimized"/>
+        <Window v-for="win in windows" :window="win" :key="win._id" @minimizeWindow="onMinimizeWindow"
+            v-show="!win.props.isMinimized" />
+        <Shortcut v-for="win in windows" :window="win" :key="win._id" @expandWindow="onExpandWindow" />
+        <Taskbar :windows="windows" @expandWindow="toggleWindowMinimized" />
     </section>
 </template>
 
@@ -22,7 +23,7 @@ export default {
         console.log(this.windows)
     },
     methods: {
-        openWindow(type = "List", title = "New Window", content="no value") {
+        openWindow(type = "List", title = "New Window", content = "no value") {
             this.windows.push(windowService.getWindow(type, title, content))
         },
         onMinimizeWindow(windowId) {
@@ -57,11 +58,23 @@ export default {
                     shortcut: {
                         img: '/portfolio/src/assets/img/icons/Book.ico',
                     }
+                },
+                {
+                    _id: 2,
+                    props: {
+                        title: 'crystalPepsi.jpg',
+                        content: `/portfolio/src/assets/img/crystalPepsi.jpg`,
+                        isMinimized: false,
+                        component: 'Image'
+                    },
+                    shortcut: {
+                        img: '/portfolio/src/assets/img/icons/Earth.ico',
+                    }
                 }
             ],
         }
     },
-    watch:{
+    watch: {
     }
 }
 </script>
