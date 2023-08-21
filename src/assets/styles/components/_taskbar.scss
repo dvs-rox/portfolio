@@ -1,0 +1,13 @@
+.taskbar{
+    position: fixed;
+    bottom: 0;
+    background-color: $taskbar-bg;
+    width:100%;
+    height: $taskbar-height;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    
+    .start{
+        @include win95-button(70px,28px);
+    }
+}
