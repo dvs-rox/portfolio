@@ -1,0 +1,18 @@
+.vdr-handle {
+    background: transparent;
+    border: none;
+}
+
+.vdr-handle-mr,
+.vdr-handle-ml {
+    margin-block: 3px;
+    top: 0;
+    height: calc(100% - 6px);
+}
+
+.vdr-handle-tm,
+.vdr-handle-bm {
+    margin-inline: 3px;
+    left: 0;
+    width: calc(100% - 6px);
+}

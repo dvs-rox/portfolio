@@ -1,9 +1,9 @@
-import '@/assets/styles/styles.scss'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import Vue3DraggableResizable from 'vue3-draggable-resizable'
-import 'vue3-draggable-resizable/dist/Vue3DraggableResizable.css'
+// import 'vue3-draggable-resizable/dist/Vue3DraggableResizable.css'
+import '@/assets/styles/styles.scss'
 
 const app = createApp(App)
 

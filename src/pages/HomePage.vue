@@ -25,6 +25,7 @@ export default {
                 title: 'Welcome to my website',
                 content: 'skeet skeet',
                 open: true,
+                component: 'List'
             }
 
         }

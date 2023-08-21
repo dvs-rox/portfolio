@@ -36,4 +36,5 @@
     .content{
         grid-row-start: 2;
     }
+    @include disable-select();
 }

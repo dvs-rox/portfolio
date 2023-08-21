@@ -6,8 +6,15 @@
     height: $taskbar-height;
     display: grid;
     grid-template-columns: 1fr auto;
-    
+    grid-template-rows: 1fr;
+    justify-content: center;
     .start{
         @include win95-button(70px,28px);
+        margin-block: auto;
+        margin-inline-start: 3px;
+    }
+    .clock{
+        @include win95-clock();
+        margin-inline-end: 3px;
     }
 }

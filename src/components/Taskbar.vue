@@ -1,7 +1,11 @@
 <template>
-    <nav class="taskbar">
+    <nav class="taskbar grid align-center">
         <button class="start">Start</button>
-        <span class="clock">{{hours}}:{{ minutes }}:{{ seconds }} {{ amPm }}</span>
+        <div class="clock">
+            <span>
+                {{ hours }}:{{ minutes }} {{ amPm }}
+            </span>
+        </div>
     </nav>
 </template>
 <script>
@@ -16,7 +20,6 @@ export default {
     methods: {
         updateClock() {
             const date = new Date()
-
             this.hours = date.getHours()
             this.minutes = date.getMinutes()
             this.seconds = date.getSeconds()
