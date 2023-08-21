@@ -1,0 +1,25 @@
+.shortcut {
+    width: $shortcut-width;
+    margin: 4px;
+    background: none;
+    border: none;
+    img {
+        @include icon(2.3rem);
+    }
+
+    span {
+        color: $shortcut-text-color;
+        font-size: 1rem;
+        background: $shortcut-text-bg;
+        width: fit-content;
+        text-align: center;
+        padding-block: 3px;
+        padding-inline: 4px;
+    }
+    
+    &.active{
+        span{
+            background: $shortcut-active;
+        }
+    }
+}

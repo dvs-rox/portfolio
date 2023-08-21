@@ -1,0 +1,8 @@
+.clock{
+    @include win95-clock();
+    flex-basis: inherit ;
+    margin-inline-end: 3px;
+    span{
+        white-space: nowrap;
+    }
+}

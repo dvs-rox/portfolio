@@ -16,3 +16,10 @@
 //COMPONENTS
 @import "components/window";
 @import "components/taskbar";
+
+//DESKTOP
+@import "components/desktop/shortcut";
+
+//TASKBAR
+@import "components/taskbar/clock";
+@import "components/taskbar/taskbar-item";

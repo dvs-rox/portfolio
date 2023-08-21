@@ -1,41 +1,27 @@
 <template>
     <nav class="taskbar grid align-center">
         <button class="start">Start</button>
-        <div class="clock">
-            <span>
-                {{ hours }}:{{ minutes }} {{ amPm }}
-            </span>
+        <div class="items-container">
+            <TaskbarItem v-for="window in windows" :key="window._id" :window="window" @expand="onExpandWindow" />
         </div>
+        <Clock />
     </nav>
 </template>
 <script>
+import Clock from '@/components/taskbar/Clock.vue'
+import TaskbarItem from '@/components/taskbar/TaskbarItem.vue'
 export default {
     name: 'Taskbar',
-    mounted() {
-        this.interval = setInterval(this.updateClock, 1000)
+    props: {
+        windows: Array
     },
-    beforeDestroy() {
-        clearInterval(this.interval)
+    components: {
+        Clock,
+        TaskbarItem
     },
     methods: {
-        updateClock() {
-            const date = new Date()
-            this.hours = date.getHours()
-            this.minutes = date.getMinutes()
-            this.seconds = date.getSeconds()
-            this.amPm = this.hours >= 12 ? "pm" : "am"
-            this.hours = this.hours % 12 || 12
-            this.minutes = this.minutes < 10 ? 0 + this.minutes : this.minutes
-            this.hours = this.hours < 10 ? 0 + this.hours : this.hours
-        }
-    },
-    data() {
-        return {
-            hours: null,
-            minutes: null,
-            seconds: null,
-            amPm: null,
-            interval: null,
+        onExpandWindow(windowId) {
+            this.$emit('expandWindow', windowId)
         }
     }
 }

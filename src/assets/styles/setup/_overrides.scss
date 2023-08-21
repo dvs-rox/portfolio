@@ -1,3 +1,4 @@
+//vdr
 .vdr-handle {
     background: transparent;
     border: none;
@@ -15,4 +16,8 @@
     margin-inline: 3px;
     left: 0;
     width: calc(100% - 6px);
+}
+.vdr-container.active{
+    border:none;
+    // z-index: 3;
 }

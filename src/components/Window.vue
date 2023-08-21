@@ -4,38 +4,43 @@
         <article class="window">
             <nav class="nav-bar">
                 <span class="title">
-                    {{ windowProps.title || 'Window' }}
+                    {{ window.props.title || 'Window' }}
                 </span>
                 <div class="actions">
-                    <button @click="closeWindow" class="close">
+                    <button @click="minimizeWindow" class="close">
                         X
                     </button>
                 </div>
             </nav>
             <section class="content">
-                <!-- {{ windowProps.content || 'Content' }} -->
-                <component :is="windowProps.component" />
+                <component :is="window.props.component" :content="window.props.content" />
             </section>
         </article>
     </Vue3DraggableResizable>
 </template>
 
 <script>
-import List from '@/components/window cmps/List.vue';
+import List from '@/components/window/List.vue';
 export default {
     name: 'Window',
     props: {
-        windowProps: {
-            type: Object,
-            required: true,
+        window: {
+            _id: String,
+            props: {
+                title: String,
+                content: String,
+                isMinimized: Boolean,
+                component: String
+            }
         }
+
     },
     components: {
         List
     },
     methods: {
-        closeWindow() {
-            console.log('closeWindow')
+        minimizeWindow() {
+            this.$emit('minimizeWindow', this.window._id)
         }
     }
 }

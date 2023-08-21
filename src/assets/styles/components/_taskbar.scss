@@ -1,20 +1,24 @@
-.taskbar{
+.taskbar {
     position: fixed;
     bottom: 0;
     background-color: $taskbar-bg;
-    width:100%;
+    width: 100%;
     height: $taskbar-height;
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: $start-width auto min-content;
     grid-template-rows: 1fr;
-    justify-content: center;
-    .start{
-        @include win95-button(70px,28px);
+
+    .start {
+        @include win95-button($start-width, 28px);
+        grid-column-start: 1;
         margin-block: auto;
         margin-inline-start: 3px;
+        justify-self: start;
     }
-    .clock{
-        @include win95-clock();
-        margin-inline-end: 3px;
+
+    .items-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
     }
 }

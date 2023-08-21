@@ -1,0 +1,17 @@
+.taskbar-item {
+    @include win95-button(200px, 28px);
+    margin-block: auto;
+    margin-inline-start: 3px;
+    display: flex;
+    align-items: center;
+    padding-inline: rem(4px);
+    img {
+        @include icon(1.5rem);
+    }
+    span {
+        overflow: hidden;
+        font-weight: 100;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}

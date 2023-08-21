@@ -7,12 +7,21 @@ $btn-primary-border: #737778;
 $index-bg: #007E7D;
 
 //Window
-$nav-bar-gradient-start:#0000A8;
-$nav-bar-gradient-end:#0000A8;
+$nav-bar-gradient-start: #0000A8;
+$nav-bar-gradient-end: #0000A8;
 $nav-bar-height: rem(24px);
-$nav-bar-font-size:rem(20px);
-$nav-bar-font-color:#C0C7C8;
+$nav-bar-font-size: rem(20px);
+$nav-bar-font-color: #C0C7C8;
 
 //Taskbar
 $taskbar-height: rem(36px);
 $taskbar-bg: #C0C0C0;
+
+//Start
+$start-width: rem(70px);
+
+//Shortcut
+$shortcut-text-color: #fff;
+$shortcut-text-bg: #87888F;
+$shortcut-width: rem(70px);
+$shortcut-active:#0000A8; //not yet accurate
