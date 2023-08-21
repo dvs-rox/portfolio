@@ -1,8 +1,8 @@
-@mixin win95-button() {
-    height: fit-content;
-    width: fit-content;
-    padding: 4px;
-    margin: 0 7px 9px 0;
+@mixin win95-button($width,$height) {
+    height: $height;
+    width: $width;
+    padding: 0;
+    margin: 0 0 0 0;
     background: #C0C7C8;
     color: black;
     border-left: 2px solid #737778;
@@ -10,6 +10,11 @@
     border-right: 2px solid #262828;
     border-bottom: 2px solid #000000;
     border-radius: 0;
-    justify-self: right;
     align-self: flex-end;
+    &:active{
+        border-left: 2px solid #262828;
+        border-top: 2px solid #262828;
+        border-right: 2px solid #737778;
+        border-bottom: 2px solid #737778;
+    }
 }

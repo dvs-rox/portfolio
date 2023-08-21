@@ -29,7 +29,7 @@ body {
     background-size: cover;
     background-repeat: repeat;
     background-position: center center;
-    background-color: $lightmode-app-bg;
+    background-color: $index-bg;
     // overflow: hidden;
 }
 
@@ -60,10 +60,3 @@ a {
     color: inherit;
 }
 
-.main-nav {
-    display: flex;
-    gap: 20px;
-    padding: 15px;
-    color: whitesmoke;
-    font-size: 20px;
-}
