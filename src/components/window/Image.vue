@@ -1,11 +1,10 @@
 <template>
     <article class="image-component">
-        <!-- <button @click="this.draggableProps.h += 30">clickme</button> -->
         <img :src="image" @load="setWindowDimensions" />
     </article>
 </template>
 <script>
-const NAVBAR_HEIGHT = 95//px
+const NAVBAR_HEIGHT = 95//px magic number lmao TODO:and make it not a magic number
 export default {
     name: 'Image',
     props: {
@@ -32,8 +31,6 @@ export default {
         setWindowDimensions({ target }) {
             this.draggableProps.w = (target.width) * this.scale
             this.draggableProps.h = ((target.height) * this.scale) + NAVBAR_HEIGHT
-            console.log("🚀 ~ file: Image.vue:35 ~ setWindowDimensions ~ this.draggableProps.h:", this.draggableProps.h)
-            console.log("🚀 ~ file: Image.vue:35 ~ setWindowDimensions ~ target.height:", target.height * 0.5)
             this.setDraggableProps()
         },
         setDraggableProps() {

@@ -12,7 +12,6 @@
 import Window from '@/components/Window.vue'
 import Taskbar from '@/components/Taskbar.vue';
 import Shortcut from '@/components/desktop/Shortcut.vue'
-import { windowService } from '@/assets/services/window.service';
 export default {
     name: 'HomePage',
     components: {
@@ -20,30 +19,24 @@ export default {
         Taskbar,
         Shortcut
     },
-    mounted() {
+    beforeMount() {
+        this.loadWindows()
     },
     methods: {
-        openWindow(type = "List", title = "New Window", content = "no value") {
-            this.windows.push(windowService.getWindow(type, title, content))
+        loadWindows() {
+            this.windows = this.$store.getters.windows
         },
         onMinimizeWindow(windowId) {
-            const win = this.windows.find(win => win._id === windowId)
-            win.props.isMinimized = true
-        },
-        onOpenWindow(windowId) {
-            console.log("🚀 ~ file: HomePage.vue:33 ~ onOpenWindow ~ windowId:", windowId)
-            const win = this.windows.find(win => win._id === windowId)
-            win.props.isOpen = true
-        },
-        onCloseWindow(windowId) {
-            const win = this.windows.find(win => win._id === windowId)
-            win.props.isOpen = false
+            this.$store.commit('minimizeWindow', windowId)
         },
         onExpandWindow(windowId) {
-            const win = this.windows.find(win => {
-                return win._id === windowId
-            })
-            win.props.isMinimized = false
+            this.$store.commit('expandWindow', windowId)
+        },
+        onOpenWindow(windowId) {
+            this.$store.commit('openWindow', windowId)
+        },
+        onCloseWindow(windowId) {
+            this.$store.commit('closeWindow', windowId)
         },
         toggleWindowMinimized(windowId) {
             const win = this.windows.find(win => win._id === windowId)
@@ -52,38 +45,7 @@ export default {
     },
     data() {
         return {
-            windows: [
-                {
-                    _id: 1,
-                    props: {
-                        title: 'Welcome to my website',
-                        content: `<h3>
-                                celebrities we like
-                            </h3>`,
-                        isOpen: false,
-                        isActive: false,
-                        isMinimized: false,
-                        component: 'List'
-                    },
-                    shortcut: {
-                        img: '/img/icons/Book.ico',
-                    }
-                },
-                {
-                    _id: 2,
-                    props: {
-                        title: 'crystalPepsi.jpg',
-                        content: `/img/crystalPepsi.jpg`,
-                        isOpen: false,
-                        isActive: false,
-                        isMinimized: false,
-                        component: 'Image'
-                    },
-                    shortcut: {
-                        img: '/img/icons/Earth.ico',
-                    }
-                }
-            ],
+            windows: [],
         }
     },
     watch: {
