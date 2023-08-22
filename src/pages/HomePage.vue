@@ -32,7 +32,6 @@ export default {
         },
         onExpandWindow(windowId) {
             const win = this.windows.find(win => {
-                console.log("🚀 ~ file: HomePage.vue:34 ~ onExpandWindow ~ win:", win)
                 return win._id === windowId
             })
             win.props.isMinimized = false
@@ -56,19 +55,19 @@ export default {
                         component: 'List'
                     },
                     shortcut: {
-                        img: '../assets/img/icons/Book.ico',
+                        img: './src/assets/img/icons/Book.ico',
                     }
                 },
                 {
                     _id: 2,
                     props: {
                         title: 'crystalPepsi.jpg',
-                        content: `../assets/img/crystalPepsi.jpg`,
+                        content: `./src/assets/img/crystalPepsi.jpg`,
                         isMinimized: false,
                         component: 'Image'
                     },
                     shortcut: {
-                        img: '../assets/img/icons/Earth.ico',
+                        img: './src/assets/img/icons/Earth.ico',
                     }
                 }
             ],
