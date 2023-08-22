@@ -1,7 +1,7 @@
 .home-page{
     height: 100%;
     background: $index-bg;
-    background-image: url('@/assets/img/background-texture.png');
+    background-image: url('/img/background-texture.png');
     display: flex;
     flex-direction: column;
 }

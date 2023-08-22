@@ -1,0 +1,29 @@
+[
+    {
+      "_id": 1,
+      "props": {
+        "title": "Welcome to my website",
+        "content": "<h3>\ncelebrities we like\n</h3>",
+        "isMinimized": false,
+        "isOpen": false,
+        "component": "List"
+      },
+      "shortcut": {
+        "img": "/img/icons/Book.ico"
+      }
+    },
+    {
+      "_id": 2,
+      "props": {
+        "title": "crystalPepsi.jpg",
+        "content": "/img/crystalPepsi.jpg",
+        "isMinimized": false,
+        "isOpen": false,
+        "component": "Image"
+      },
+      "shortcut": {
+        "img": "/img/icons/Earth.ico"
+      }
+    }
+  ]
+  

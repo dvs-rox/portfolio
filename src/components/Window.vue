@@ -7,20 +7,11 @@
     v-model:maxW="draggableProps.maxW"
     v-model:maxH="draggableProps.maxH"
     v-model:resizable="draggableProps.resizable"
-    :parent="true"
     v-model:lock-aspect-ratio="draggableProps.lockAspectRatio"
+    :parent="true"
         :handles="['tl', 'tm', 'tr', 'mr', 'br', 'bm', 'bl', 'ml']">
         <article class="window">
-            <nav class="nav-bar">
-                <span class="title">
-                    {{ window.props.title || 'Window' }}
-                </span>
-                <div class="actions">
-                    <button @click="minimizeWindow" class="close">
-                        X
-                    </button>
-                </div>
-            </nav>
+            <NavBar @minimize="minimizeWindow" @close="closeWindow" :title="window.props.title"/>
             <section class="content">
                 <component :is="window.props.component" :content="window.props.content"
                     @setDraggableProps="onSetDraggableProps" />
@@ -30,6 +21,7 @@
 </template>
 
 <script>
+import NavBar from '@/components/window/NavBar.vue';
 import List from '@/components/window/List.vue';
 import Image from '@/components/window/Image.vue';
 
@@ -61,20 +53,31 @@ export default {
         }
     },
     components: {
-        List,
-        Image
-    },
+    NavBar,
+    List,
+    Image,
+    NavBar
+},
     methods: {
+        closeWindow() {
+            this.$emit('closeWindow', this.window._id)
+        },
         minimizeWindow() {
             this.$emit('minimizeWindow', this.window._id)
         },
         onSetDraggableProps(props) {
-            this.draggableProps = props
+            this.draggableProps = {...props}
         }
     },
     computed: {
     },
     watch: {
+        draggableProps: {
+            handler: function (newVal) {
+                this.$emit('setDraggableProps', newVal)
+            },
+            deep: true
+        }
     }
 }
 

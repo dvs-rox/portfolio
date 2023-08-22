@@ -1,5 +1,5 @@
 <template>
-    <button class="flex flex-column align-center" @click="onActive" @dblclick="expandWindow" @blur="onLoseFocus"
+    <button class="flex flex-column align-center" @click="onActive" @dblclick="openWindow" @blur="onLoseFocus"
         :class="classNames">
         <img :src="window.shortcut.img" alt="">
         <span>{{ window.props.title }}</span>
@@ -14,7 +14,6 @@ export default {
         },
     },
     mounted() {
-        console.log(this.window);
     },
     data() {
         return {
@@ -33,6 +32,9 @@ export default {
         },
         expandWindow() {
             this.$emit('expandWindow', this.window._id);
+        },
+        openWindow() {
+            this.$emit('openWindow', this.window._id)
         }
     }
 }

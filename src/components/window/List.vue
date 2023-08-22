@@ -28,8 +28,25 @@ export default {
                 { id: 8, name: 'Eddie Murphy' },
                 { id: 9, name: 'Cyndi Lauper' },
                 { id: 10, name: 'Bruce Springsteen' }
-            ]
+            ],
+            draggableProps: {
+                maxW: 550,
+                maxH: 750,
+                minW: 350,
+                minH: 450,
+                w: 350,
+                h: 450,
+                resizable: true,
+            }
 
+        }
+    },
+    created() {
+        this.setDraggableProps()
+    },
+    methods:{
+        setDraggableProps(){
+            this.$emit('setDraggableProps', this.draggableProps)
         }
     }
 }

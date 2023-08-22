@@ -1,10 +1,11 @@
 <template>
     <article class="image-component">
-        <img :src="image" @load="getImageDimensions" />
+        <!-- <button @click="this.draggableProps.h += 30">clickme</button> -->
+        <img :src="image" @load="setWindowDimensions" />
     </article>
 </template>
 <script>
-const NAVBAR_HEIGHT = 36;//px
+const NAVBAR_HEIGHT = 95//px
 export default {
     name: 'Image',
     props: {
@@ -13,6 +14,7 @@ export default {
     data() {
         return {
             image: '',
+            scale: 0.5,
             draggableProps: {
                 w: 350,
                 h: 350,
@@ -24,14 +26,18 @@ export default {
     beforeCreate() {
     },
     beforeMount() {
-        this.image = this.content;
+        this.image = this.content
     },
     methods: {
-        getImageDimensions({ target }) {
-            this.draggableProps.w = target.width;
-            this.draggableProps.h = target.height + NAVBAR_HEIGHT;
+        setWindowDimensions({ target }) {
+            this.draggableProps.w = (target.width) * this.scale
+            this.draggableProps.h = ((target.height) * this.scale) + NAVBAR_HEIGHT
+            console.log("🚀 ~ file: Image.vue:35 ~ setWindowDimensions ~ this.draggableProps.h:", this.draggableProps.h)
+            console.log("🚀 ~ file: Image.vue:35 ~ setWindowDimensions ~ target.height:", target.height * 0.5)
+            this.setDraggableProps()
+        },
+        setDraggableProps() {
             this.$emit('setDraggableProps', this.draggableProps)
-            console.log("🚀 ~ file: Image.vue:31 ~ getImageDimensions ~ draggableProps:", draggableProps)
         }
     },
     watch: {

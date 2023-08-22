@@ -1,8 +1,9 @@
-import {createStore} from 'vuex'
+import { createStore } from 'vuex'
 
-export const store=createStore({
-    strict:true,
-    modules:{
-
+import { windowStore } from './modules/window.store.js'
+export const store = createStore({
+    strict: true,
+    modules: {
+        windowStore,
     }
 })
