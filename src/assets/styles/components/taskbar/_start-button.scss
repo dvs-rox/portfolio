@@ -1,0 +1,13 @@
+.start {
+    @include win95-button($start-width, 28px);
+    grid-column-start: 1;
+    margin-block: auto;
+    margin-inline-start: 3px;
+    justify-self: start;
+    font-weight: 600;
+    gap: 4px;
+    img {
+
+        @include icon(calc($taskbar-height - 8px));
+    }
+}

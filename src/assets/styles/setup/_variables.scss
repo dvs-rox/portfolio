@@ -16,12 +16,16 @@ $nav-bar-font-color: #C0C7C8;
 //Taskbar
 $taskbar-height: rem(36px);
 $taskbar-bg: #C0C0C0;
+$logo-main-color: #C5C4C7;
+$logo-secondary-color: #FCFBFE;
 
 //Start
-$start-width: rem(70px);
+$start-width: rem(80px);
+$start-accent-background: #808082;
+
 
 //Shortcut
 $shortcut-text-color: #fff;
 $shortcut-text-bg: #87888F;
 $shortcut-width: rem(70px);
-$shortcut-active:#0000A8; //not yet accurate
+$shortcut-active: #0000A8; //not yet accurate

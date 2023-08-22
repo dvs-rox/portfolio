@@ -16,21 +16,21 @@ export const windowStore = {
                     component: 'List'
                 },
                 shortcut: {
-                    img: '/img/icons/Book.ico',
+                    img: './img/icons/Book.ico',
                 }
             },
             {
                 _id: 2,
                 props: {
                     title: 'crystalPepsi.jpg',
-                    content: `/img/crystalPepsi.jpg`,
+                    content: `./img/crystalPepsi.jpg`,
                     isOpen: false,
                     isActive: false,
                     isMinimized: false,
                     component: 'Image'
                 },
                 shortcut: {
-                    img: '/img/icons/Earth.ico',
+                    img: './img/icons/Earth.ico',
                 }
             }],
             activeWindow: null,
@@ -52,6 +52,10 @@ export const windowStore = {
         maximizeWindow(state, windowId) {
             const window = state.windows.find(w => w._id === windowId)
             window.props.isMinimized = false
+        },
+        toggleWindowMinimized(state, windowId) {
+            const window = state.windows.find(w => w._id === windowId)
+            window.props.isMinimized = !window.props.isMinimized
         },
         openWindow(state, windowId) {
             const window = state.windows.find(w => w._id === windowId)

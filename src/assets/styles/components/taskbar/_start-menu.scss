@@ -1,0 +1,39 @@
+.start-menu {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    grid-template-rows: auto;
+    position: absolute;
+    bottom: 100%;
+    background: $taskbar-bg;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #08080E;
+    border-right: 1px solid #08080E;
+
+    .sidebar {
+        background-color: $start-accent-background;
+        grid-column-start: 1;
+        grid-row-start: 1;
+        grid-row-end: 10;
+        height: 100%;
+    }
+
+    .sidebar .logo {
+        writing-mode: vertical-rl;
+        rotate: 180deg;
+
+        span {
+            color: $logo-main-color;
+            font-size: 1.5rem;
+            font-weight: 700;
+
+            &:nth-child(2) {
+                color: $logo-secondary-color;
+            }
+        }
+    }
+
+    .start-menu-shortcut {
+        grid-column-start: 2;
+    }
+}

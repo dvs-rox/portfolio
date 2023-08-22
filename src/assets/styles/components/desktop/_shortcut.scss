@@ -16,10 +16,11 @@
         padding-block: 3px;
         padding-inline: 4px;
     }
-    
     &.active{
         span{
             background: $shortcut-active;
         }
+    }
+    &.start-menu-shortcut{
     }
 }

@@ -39,8 +39,7 @@ export default {
             this.$store.commit('closeWindow', windowId)
         },
         toggleWindowMinimized(windowId) {
-            const win = this.windows.find(win => win._id === windowId)
-            win.props.isMinimized = !win.props.isMinimized
+            this.$store.commit('toggleWindowMinimized', windowId)
         }
     },
     data() {
