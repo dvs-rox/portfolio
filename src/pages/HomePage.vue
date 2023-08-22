@@ -56,19 +56,19 @@ export default {
                         component: 'List'
                     },
                     shortcut: {
-                        img: '/portfolio/src/assets/img/icons/Book.ico',
+                        img: '../assets/img/icons/Book.ico',
                     }
                 },
                 {
                     _id: 2,
                     props: {
                         title: 'crystalPepsi.jpg',
-                        content: `/portfolio/src/assets/img/crystalPepsi.jpg`,
+                        content: `../assets/img/crystalPepsi.jpg`,
                         isMinimized: false,
                         component: 'Image'
                     },
                     shortcut: {
-                        img: '/portfolio/src/assets/img/icons/Earth.ico',
+                        img: '../assets/img/icons/Earth.ico',
                     }
                 }
             ],
