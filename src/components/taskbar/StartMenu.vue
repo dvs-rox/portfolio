@@ -5,12 +5,12 @@
                 <span>Windows</span><span>95</span>
             </div>
         </div>
-        <Shortcut v-for="win in windows" :window="win" :key="win._id" @expandWindow="onExpandWindow"
-            @openWindow="onOpenWindow" class="start-menu-shortcut" />
+        <Shortcut v-for="win in windows" v-show="win && win.dir.includes('startMenu')" :window="win" :key="win._id"
+            @expandWindow="onExpandWindow" @openWindow="onOpenWindow" class="start-menu-shortcut" />
     </div>
 </template>
 <script>
-import Shortcut from '../desktop/Shortcut.vue';
+import Shortcut from '@/components/desktop/Shortcut.vue'
 export default {
     name: 'StartMenu',
     props: {
@@ -22,6 +22,9 @@ export default {
             type: Object,
             required: true
         }
+    },
+    created() {
+        console.log("🚀 ~ file: StartMenu.vue:28 ~ created ~ this.windows:", this.windows)
     },
     methods: {
         onExpandWindow(windowId) {

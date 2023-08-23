@@ -15,10 +15,12 @@ export default {
             image: '',
             scale: 0.5,
             draggableProps: {
-                w: 350,
-                h: 350,
+                minW: 350,
+                minH: 350,
+                maxW: 600,
+                maxH: 600,
                 lockAspectRatio: true,
-                resizable: false,
+                resizable: true,
             }
         }
     },

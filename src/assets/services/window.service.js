@@ -1,26 +1,23 @@
 import { utilService } from './util.service.js'
 import { storageService } from './async-storage.service.js'
+
+const STORAGE_KEY = 'window'
+let windowsDemo =
+    [
+        
+    ]
 export const windowService = {
-    getWindow,
+    // getWindow,
+    query,
     // closeWindow,
     // minimizeWindow,
     // maximizeWindow,
     // getWindows,
 }
-function getWindow(type = "List", title = "New Window", content = "", img= "/portfolio/src/assets/img/icons/Book.ico") {
-    const id = utilService.makeId()
-    return {
-        _id: id,
-        props: {
-            title: title,
-            content: content,
-            isMinimized: false,
-            component: type
-        },
-        shortcut: {
-            windowId: id,
-            title: title,
-            img: img,
-        }
+async function query() {
+    const windows = await storageService.query(STORAGE_KEY)
+    if (!windows || !windows.length) {
+        return await storageService.post(STORAGE_KEY, windowsDemo)
     }
+    return windows
 }

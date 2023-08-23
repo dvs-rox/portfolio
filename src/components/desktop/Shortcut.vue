@@ -8,10 +8,7 @@
 <script>
 export default {
     props: {
-        window:{
-            type: Object,
-            required: true
-        },
+        window: Object
     },
     mounted() {
     },

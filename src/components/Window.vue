@@ -1,20 +1,12 @@
 <template>
-    <Vue3DraggableResizable 
-    v-model:w="draggableProps.w" 
-    v-model:h="draggableProps.h" 
-    v-model:minW="draggableProps.minW"
-    v-model:minH="draggableProps.minH"
-    v-model:maxW="draggableProps.maxW"
-    v-model:maxH="draggableProps.maxH"
-    v-model:resizable="draggableProps.resizable"
-    v-model:lock-aspect-ratio="draggableProps.lockAspectRatio"
-    :parent="true"
-        :handles="['tl', 'tm', 'tr', 'mr', 'br', 'bm', 'bl', 'ml']">
+    <Vue3DraggableResizable v-model:w="draggableProps.w" v-model:h="draggableProps.h" v-model:minW="draggableProps.minW"
+        v-model:minH="draggableProps.minH" v-model:maxW="draggableProps.maxW" v-model:maxH="draggableProps.maxH"
+        v-model:resizable="draggableProps.resizable" v-model:lock-aspect-ratio="draggableProps.lockAspectRatio"
+        :parent="true" :handles="['tl', 'tm', 'tr', 'mr', 'br', 'bm', 'bl', 'ml']">
         <article class="window">
-            <NavBar @minimize="minimizeWindow" @close="closeWindow" :title="window.props.title"/>
+            <NavBar @minimize="minimizeWindow" @close="closeWindow" :title="window.props.title" />
             <section class="content">
-                <component :is="window.props.component" :content="window.props.content"
-                    @setDraggableProps="onSetDraggableProps" />
+                <component :is="window.fileType" :content="window.props.content" @setDraggableProps="onSetDraggableProps" />
             </section>
         </article>
     </Vue3DraggableResizable>
@@ -24,6 +16,7 @@
 import NavBar from '@/components/window/NavBar.vue';
 import List from '@/components/window/List.vue';
 import Image from '@/components/window/Image.vue';
+import Notepad from '@/components/window/Notepad.vue';
 
 export default {
     name: 'Window',
@@ -36,28 +29,31 @@ export default {
                 minH: 450,
                 maxH: null,
                 maxW: null,
-                lockAspectRatio:false,
+                lockAspectRatio: false,
                 resizable: true,
+                zIndex: 9,
             }
         }
     },
     props: {
         window: {
             _id: String,
+            fileType: String,
+            dir: Array,
             props: {
                 title: String,
                 content: String,
                 isMinimized: Boolean,
-                component: String
             }
         }
     },
     components: {
-    NavBar,
-    List,
-    Image,
-    NavBar
-},
+        NavBar,
+        List,
+        Image,
+        NavBar,
+        Notepad
+    },
     methods: {
         closeWindow() {
             this.$emit('closeWindow', this.window._id)
@@ -66,7 +62,7 @@ export default {
             this.$emit('minimizeWindow', this.window._id)
         },
         onSetDraggableProps(props) {
-            this.draggableProps = {...props}
+            this.draggableProps = { ...props }
         }
     },
     computed: {

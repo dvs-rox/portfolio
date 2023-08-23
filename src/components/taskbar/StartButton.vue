@@ -20,7 +20,6 @@ export  default {
     },
     methods: {
         toggleStartMenu() {
-            console.log('togglin srt menu')
             this.isStartMenuOpen = !this.isStartMenuOpen
         },
         onExpandWindow(windowId) {

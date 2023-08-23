@@ -37,7 +37,8 @@
     .content{
         padding-block-start: rem(3px);
         grid-row-start: 2;
-        height: fit-content;
+        height: 100%;
+        width: 100%
     }
     @include disable-select();
 }

@@ -7,12 +7,20 @@ export default {
     RouterLink,
     RouterView,
     HomePage,
+  },
+  created() {
+    this.$store.dispatch('loadWindows')
+  },
+  computed:{
+    isLoaded(){
+      return this.$store.getters.isLoaded
+    }
   }
 }
 </script>
 
 <template>
   <main class="main-layout">
-    <HomePage />
+    <HomePage/>
   </main>
 </template>

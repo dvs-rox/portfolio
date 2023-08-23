@@ -19,15 +19,17 @@
         border-bottom: 2px solid #737778;
     }
 }
-
-@mixin win95-clock() {
-    display: flex;
-    align-content: center;
-    justify-content: center;
+@mixin win95-inner-border(){
     border-top: 1px solid #08080E;
     border-left: 1px solid #08080E;
     border-bottom: 1px solid #fff;
     border-right: 1px solid #fff;
+}
+@mixin win95-clock() {
+    @include win95-inner-border();
+    display: flex;
+    align-content: center;
+    justify-content: center;
     height: calc(100% - 6px);
     width: 100%;
     span {

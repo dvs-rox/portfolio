@@ -1,16 +1,16 @@
 <template>
     <section class="home-page">
-        <Window v-for="win in windows" :window="win" :key="win._id" @closeWindow="onCloseWindow"
-            @minimizeWindow="onMinimizeWindow" v-show="win.props.isOpen && !win.props.isMinimized" />
-        <Shortcut v-for="win in windows" :window="win" :key="win._id" @expandWindow="onExpandWindow"
+        <Window v-for="win in windows" :window="win" :key="win._id" @closeWindow="onCloseWindow" @minimizeWindow="windows"
+            v-show="win && win.props.isOpen && !win.props.isMinimized" />
+        <Shortcut v-for="win in windows" v-show="win" :window="win" :key="win._id" @expandWindow="onExpandWindow"
             @openWindow="onOpenWindow" />
-        <Taskbar :windows="windows" @expandWindow="toggleWindowMinimized" />
+        <Taskbar v-if="windows" :windows="windows" @expandWindow="toggleWindowMinimized" />
     </section>
 </template>
 
 <script>
 import Window from '@/components/Window.vue'
-import Taskbar from '@/components/Taskbar.vue';
+import Taskbar from '@/components/Taskbar.vue'
 import Shortcut from '@/components/desktop/Shortcut.vue'
 export default {
     name: 'HomePage',
@@ -19,8 +19,13 @@ export default {
         Taskbar,
         Shortcut
     },
-    beforeMount() {
+    created() {
         this.loadWindows()
+    },
+    data() {
+        return {
+            windows: []
+        }
     },
     methods: {
         loadWindows() {
@@ -40,11 +45,6 @@ export default {
         },
         toggleWindowMinimized(windowId) {
             this.$store.commit('toggleWindowMinimized', windowId)
-        }
-    },
-    data() {
-        return {
-            windows: [],
         }
     },
     watch: {
