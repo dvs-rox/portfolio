@@ -55,20 +55,34 @@ export const windowStore = {
                     fileType: 'List',
                     dir: ['desktop', 'startMenu'],
                     props: {
-                        title: 'Welcome to my website',
+                        title: 'Projects',
                         content: [
-                            { id: 1, name: 'Michael Jackson' },
-                            { id: 2, name: 'Madonna' },
-                            { id: 3, name: 'Tom Cruise' },
-                            { id: 4, name: 'Prince' },
-                            { id: 5, name: 'Whitney Houston' },
-                            { id: 6, name: 'Arnold Schwarzenegger' },
-                            { id: 7, name: 'Molly Ringwald' },
-                            { id: 8, name: 'Eddie Murphy' },
-                            { id: 9, name: 'Cyndi Lauper' },
-                            { id: 10, name: 'Bruce Springsteen' }
+                            {
+                                id: 1,
+                                imgURL: './img/projectList/Approdite.png',
+                                title: 'Approdite',
+                                onHover: 'A vue project that simulates Gmail, Google Keeps, and Google books',
+                                siteURL: 'https://dorezahavy.github.io/approdite',
+                                gitURL: 'https://github.com/DoreZahavy/approdite',
+                            },
+                            {
+                                id: 2,
+                                imgURL: './img/projectList/doomguy.png',
+                                title: 'Doomsweeper',
+                                onHover: 'Vanilla minesweeper game with a doom theme',
+                                siteURL: 'https://dvs-rox.github.io/minesweeper/',
+                                gitURL: 'https://github.com/dvs-rox/minesweeper',
+                            },
+                            {
+                                id: 3,
+                                imgURL: './img/projectList/monday.png',
+                                title: 'Mayday',
+                                onHover: 'Monday.com clone done in Vue.js',
+                                siteURL: 'https://mayday-production.up.railway.app/',
+                                gitURL: 'https://github.com/DoreZahavy/mayday-frontend',
+                            }
                         ],
-                        isOpen: true,
+                        isOpen: false,
                         isActive: false,
                         isMinimized: false,
                     },
@@ -83,7 +97,7 @@ export const windowStore = {
                     props: {
                         title: 'crystalPepsi.jpg',
                         content: `./img/crystalPepsi.jpg`,
-                        isOpen: true,
+                        isOpen: false,
                         isActive: false,
                         isMinimized: false,
                     },
@@ -98,14 +112,14 @@ export const windowStore = {
                     props: {
                         title: 'README.txt',
                         content: `welcome to my site :DDD`,
-                        isOpen: true,
+                        isOpen: false,
                         isActive: false,
                         isMinimized: false,
                     },
                     shortcut: {
                         img: './img/icons/Notepad.ico',
                     }
-                }]        
+                }]
                 await context.commit({ type: 'setWindows', windows })
                 return windows
             } catch (err) {

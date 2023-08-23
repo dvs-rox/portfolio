@@ -1,14 +1,17 @@
 <template>
     <article class="notepad-container">
-        <toolbar></toolbar>
-        <QuillEditor theme="" toolbar=""  class="notepad" ref="notepad" v-model:content="textHTML">
-
+        <!-- <NotepadToolbar/> -->
+        <QuillEditor theme="" toolbar="" class="notepad" ref="notepad" v-model:content="textHTML">
         </QuillEditor>
     </article>
 </template>
 <script>
+import  NotepadToolbar  from '@/components/window/NotepadToolbar.vue'
 export default {
     name: 'Notepad',
+    components: {
+        NotepadToolbar
+    },
     props: {
         content: String,
     },
