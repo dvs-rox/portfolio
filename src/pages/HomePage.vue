@@ -1,6 +1,6 @@
 <template>
     <section class="home-page parent">
-        <Window v-for="win in windows" :window="win" :key="win._id" @closeWindow="onCloseWindow" @minimizeWindow="windows"
+        <Window v-for="win in windows" :window="win" :key="win._id" @closeWindow="onCloseWindow" @minimizeWindow="onMinimizeWindow"
             v-show="win && win.props.isOpen && !win.props.isMinimized" @update="onWindowUpdate"/>
         <Shortcut v-for="win in windows" v-show="win" :window="win" :key="win._id" @expandWindow="onExpandWindow"
             @openWindow="onOpenWindow" />

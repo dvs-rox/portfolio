@@ -19,12 +19,10 @@ export default {
         return {
             textHTML: '',
             draggableProps: {
-                // w: 500,
-                // h: 550,
-                minW: 500,
-                minH: 550,
-                maxH: null,
-                maxW: null,
+                w: 300,
+                h: 450,
+                x:90,
+                y:60,
                 lockAspectRatio: false,
                 resizable: true,
             }
