@@ -1,7 +1,7 @@
 <template>
     <article class="notepad-container">
-        <!-- <NotepadToolbar/> -->
-        <QuillEditor theme="" toolbar="" class="notepad" ref="notepad" v-model:content="textHTML">
+    <NotepadToolbar @save="onSave"/>
+        <QuillEditor theme="" toolbar="" class="notepad" ref="notepad" v-model:content="textHTML" contentType="html">
         </QuillEditor>
     </article>
 </template>
@@ -19,10 +19,10 @@ export default {
         return {
             textHTML: '',
             draggableProps: {
-                w: 500,
-                h: 450,
+                // w: 500,
+                // h: 550,
                 minW: 500,
-                minH: 450,
+                minH: 550,
                 maxH: null,
                 maxW: null,
                 lockAspectRatio: false,
@@ -30,8 +30,15 @@ export default {
             }
         }
     },
-    beforeMount() {
+    methods: {
+        onSave() {
+            this.$emit('save', this.textHTML)
+            console.log("🚀 ~ file: Notepad.vue:36 ~ onSave ~ this.textHTML:", this.textHTML)
+        }
+    },
+    created() {
         this.textHTML = this.content
+        this.$emit('setDraggableProps', this.draggableProps)
     },
     watch: {
         textHTML: {

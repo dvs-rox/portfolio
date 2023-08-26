@@ -1,7 +1,7 @@
 <template>
-    <section class="home-page">
+    <section class="home-page parent">
         <Window v-for="win in windows" :window="win" :key="win._id" @closeWindow="onCloseWindow" @minimizeWindow="windows"
-            v-show="win && win.props.isOpen && !win.props.isMinimized" />
+            v-show="win && win.props.isOpen && !win.props.isMinimized" @update="onWindowUpdate"/>
         <Shortcut v-for="win in windows" v-show="win" :window="win" :key="win._id" @expandWindow="onExpandWindow"
             @openWindow="onOpenWindow" />
         <Taskbar v-if="windows" :windows="windows" @expandWindow="toggleWindowMinimized" />
@@ -45,6 +45,9 @@ export default {
         },
         toggleWindowMinimized(windowId) {
             this.$store.commit('toggleWindowMinimized', windowId)
+        },
+        onWindowUpdate(window) {
+            this.$store.dispatch('updateWindow', window)
         }
     },
     watch: {

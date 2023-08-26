@@ -93,7 +93,7 @@ export const windowStore = {
                 {
                     _id: 2,
                     fileType: 'Image',
-                    dir: ['desktop'],
+                    dir: ['startMenu'],
                     props: {
                         title: 'crystalPepsi.jpg',
                         content: `./img/crystalPepsi.jpg`,
@@ -102,7 +102,7 @@ export const windowStore = {
                         isMinimized: false,
                     },
                     shortcut: {
-                        img: './img/icons/Earth.ico',
+                        img: './img/icons/Painting.ico',
                     }
                 },
                 {
@@ -111,7 +111,7 @@ export const windowStore = {
                     dir: ['desktop'],
                     props: {
                         title: 'README.txt',
-                        content: `welcome to my site :DDD`,
+                        content: `<p><b>Welcome to my site!</b></p><br><p> I'm Yona and I'm a fullstack developer. I'm currently looking for a job in the field. I'm a fast learner and I'm always looking to learn new things. I'm a team player and I love working with people and can handle tasks on my own as well. Please look around!, this will hopefully have more features over time but essential info is accessible from the desktop.</p>`,
                         isOpen: false,
                         isActive: false,
                         isMinimized: false,
@@ -119,7 +119,22 @@ export const windowStore = {
                     shortcut: {
                         img: './img/icons/Notepad.ico',
                     }
-                }]
+                }, 
+                {
+                    _id: 4,
+                    fileType: 'Image',
+                    dir: ['desktop'],
+                    props: {
+                        title: 'yona.png',
+                        content: `./img/mosaic.png`,
+                        isOpen: false,
+                        isActive: false,
+                        isMinimized: false,
+                    },
+                    shortcut: {
+                        img: './img/icons/Painting.ico',
+                    }
+                },]
                 await context.commit({ type: 'setWindows', windows })
                 return windows
             } catch (err) {

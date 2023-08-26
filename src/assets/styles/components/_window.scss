@@ -1,44 +1,52 @@
 .window {
-    display: grid;
-    grid-template-rows: $nav-bar-height 1fr;
+    display: flex;
     font-family: w95;
     background-color: #C0C7C8;
     border-left: 2px solid #F2F4F4;
     border-top: 2px solid #E6E9E9;
     border-right: 2px solid #9A9FA0;
     border-bottom: 2px solid #262828;
-    // width: 800px;
-    height: 100%;
-    // height: fit-content;
+    min-width: 300px;
+    min-height: 300px;
     box-shadow: 2px 2px rgba(0, 0, 0, .5);
+    height: 100%;
+    width: 100%;
     .nav-bar {
-        margin-inline:3px;
-        grid-row-start: 1;
-        justify-self: center;
-        width: 100%;
+        border-left: 2px solid #F2F4F4;
+        border-top: 2px solid #E6E9E9;
+        border-right: 2px solid #9A9FA0;
+        border-bottom: none;
+        position: absolute;
+        top: -$nav-bar-height;
+        left:-2px;
         height: $nav-bar-height;
+        // margin-inline:3px;
+        width: calc(100% + 4px);
         font-weight: 400;
         text-align: left;
         background: linear-gradient(to right, $nav-bar-gradient-start 20%, $nav-bar-gradient-end 50%);
-        color:$nav-bar-font-color;
-        padding-inline: 2px;
+        color: $nav-bar-font-color;
         display: grid;
         grid-template-columns: 1fr auto;
-        .title{
+
+        .title {
             font-size: $nav-bar-font-size;
         }
-        .actions{
-            button{
-                @include win95-button(22px,20px);
+
+        .actions {
+            button {
+                @include win95-button(22px, 20px);
                 font-size: 14px;
             }
         }
     }
-    .content{
+
+    .content {
         padding-block-start: rem(3px);
         grid-row-start: 2;
         height: 100%;
         width: 100%
     }
+
     @include disable-select();
 }

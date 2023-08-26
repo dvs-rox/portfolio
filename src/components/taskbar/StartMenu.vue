@@ -24,7 +24,6 @@ export default {
         }
     },
     created() {
-        console.log("🚀 ~ file: StartMenu.vue:28 ~ created ~ this.windows:", this.windows)
     },
     methods: {
         onExpandWindow(windowId) {

@@ -1,0 +1,10 @@
+.notepad-toolbar{
+    button{
+        @include win95-button(50,32);
+        padding: 3px;
+        margin-block-end: 2px;
+        span{
+            text-decoration: underline;
+        }
+    }
+}

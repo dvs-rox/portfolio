@@ -9,10 +9,10 @@
   },
   "dependencies": {
     "@vueup/vue-quill": "^1.2.0",
+    "draggable-resizable-vue3": "^1.0.94-beta",
     "sass": "^1.66.1",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4",
-    "vue3-draggable-resizable": "^1.6.5",
     "vuex": "^4.1.0"
   },
   "devDependencies": {

@@ -20,10 +20,12 @@ export default {
     data() {
         return {
             draggableProps: {
-                maxW: 550,
-                maxH: 750,
-                minW: 350,
-                minH: 450,
+                // maxW: 550,
+                // maxH: 750,
+                // minW: 350,
+                // minH: 450,
+                x: 120,
+                y: 100,
                 w: 350,
                 h: 450,
                 resizable: true,
@@ -34,7 +36,6 @@ export default {
     created() {
         this.setDraggableProps()
 
-        console.log("🚀 ~ file: List.vue:33 ~ created ~ this.content:", this.content)
     },
     methods: {
         setDraggableProps() {

@@ -1,10 +1,10 @@
 <template>
-    <article class="image-component">
-        <img :src="image" @load="setWindowDimensions" />
-    </article>
+    <!-- <article class="image-component"> -->
+    <img :src="image" @load="setWindowDimensions" class="image-component" />
+    <!-- </article> -->
 </template>
 <script>
-const NAVBAR_HEIGHT = 95//px magic number lmao TODO:and make it not a magic number
+// const NAVBAR_HEIGHT = 95//px magic number lmao TODO:and make it not a magic number
 export default {
     name: 'Image',
     props: {
@@ -15,10 +15,10 @@ export default {
             image: '',
             scale: 0.5,
             draggableProps: {
-                minW: 350,
-                minH: 350,
-                maxW: 600,
-                maxH: 600,
+                w: 450,
+                h: 500,
+                x: 120,
+                y: 100,
                 lockAspectRatio: true,
                 resizable: true,
             }
@@ -31,8 +31,8 @@ export default {
     },
     methods: {
         setWindowDimensions({ target }) {
-            this.draggableProps.w = (target.width) * this.scale
-            this.draggableProps.h = ((target.height) * this.scale) + NAVBAR_HEIGHT
+            this.draggableProps.w = target.width * this.scale
+            this.draggableProps.h = target.height * this.scale
             this.setDraggableProps()
         },
         setDraggableProps() {
