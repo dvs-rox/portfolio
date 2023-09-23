@@ -35,13 +35,11 @@ export const windowStore = {
             window.props.isMinimized = !window.props.isMinimized
         },
         toTop(state, windowId) {
-            console.log("🚀 ~ file: window.store.js:41 ~ toTop ~ state.windows:", state.windows)
             const windowIdx = state.windows.findIndex(w => w._id === windowId)
             const window = state.windows.splice(windowIdx, 1)
             state.windows.push(window)
         },
         openWindow(state, windowId) {
-            console.log("🚀 ~ file: window.store.js:46 ~ openWindow ~ windowId:", windowId)
             const window = state.windows.find(w => w._id === windowId)
             window.props.isOpen = true
             // this.commit({ type: 'toTop', windowId })

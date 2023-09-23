@@ -31,7 +31,6 @@ export default {
     methods: {
         onSave() {
             this.$emit('save', this.textHTML)
-            console.log("🚀 ~ file: Notepad.vue:36 ~ onSave ~ this.textHTML:", this.textHTML)
         }
     },
     created() {

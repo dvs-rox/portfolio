@@ -41,7 +41,6 @@ export default {
             this.$store.commit('expandWindow', windowId)
         },
         onOpenWindow(windowId) {
-            console.log("🚀 ~ file: HomePage.vue:44 ~ onOpenWindow ~ windowId:", windowId)
             this.$store.commit('openWindow', windowId)
         },
         onCloseWindow(windowId) {

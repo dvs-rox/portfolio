@@ -1,7 +1,7 @@
 <template>
-    <!-- <article class="image-component"> -->
-    <img :src="image" @load="setWindowDimensions" class="image-component" />
-    <!-- </article> -->
+    <img :src="image" 
+    @load="setWindowDimensions
+                            " class="image-component" />
 </template>
 <script>
 // const NAVBAR_HEIGHT = 95//px magic number lmao TODO:and make it not a magic number
@@ -25,16 +25,16 @@ export default {
             }
         }
     },
-    beforeCreate() {
-    },
     beforeMount() {
         this.image = this.content
-        this.setDraggableProps()
+    },
+    mounted() {
     },
     methods: {
         setWindowDimensions({ target }) {
+            const taskbarHeight = 0
             this.draggableProps.w = target.width * this.scale
-            this.draggableProps.h = target.height * this.scale
+            this.draggableProps.h = (target.height * this.scale) + taskbarHeight
             this.setDraggableProps()
         },
         setDraggableProps() {
