@@ -4,7 +4,7 @@ export const windowStore = {
     strict: true,
     state() {
         return {
-            windows: []
+            windows: [],
         }
     },
     getters: {
@@ -34,17 +34,21 @@ export const windowStore = {
             const window = state.windows.find(w => w._id === windowId)
             window.props.isMinimized = !window.props.isMinimized
         },
+        toTop(state, windowId) {
+            console.log("🚀 ~ file: window.store.js:41 ~ toTop ~ state.windows:", state.windows)
+            const windowIdx = state.windows.findIndex(w => w._id === windowId)
+            const window = state.windows.splice(windowIdx, 1)
+            state.windows.push(window)
+        },
         openWindow(state, windowId) {
+            console.log("🚀 ~ file: window.store.js:46 ~ openWindow ~ windowId:", windowId)
             const window = state.windows.find(w => w._id === windowId)
             window.props.isOpen = true
+            // this.commit({ type: 'toTop', windowId })
         },
         closeWindow(state, windowId) {
             const window = state.windows.find(w => w._id === windowId)
             window.props.isOpen = false
-        },
-        topLayerWindow(state, windowId) {
-            const window = state.windows.find(w => w._id === windowId)
-            this.windows.push(this.windows.splice(this.windows.indexOf(window), 1)[0])
         }
     },
     actions: {
@@ -85,6 +89,7 @@ export const windowStore = {
                         isOpen: false,
                         isActive: false,
                         isMinimized: false,
+                        zIndex: 4,
                     },
                     shortcut: {
                         img: './img/icons/Book.ico',
@@ -100,6 +105,7 @@ export const windowStore = {
                         isOpen: false,
                         isActive: false,
                         isMinimized: false,
+                        zIndex: 3,
                     },
                     shortcut: {
                         img: './img/icons/Painting.ico',
@@ -115,11 +121,12 @@ export const windowStore = {
                         isOpen: false,
                         isActive: false,
                         isMinimized: false,
+                        zIndex: 2,
                     },
                     shortcut: {
                         img: './img/icons/Notepad.ico',
                     }
-                }, 
+                },
                 {
                     _id: 4,
                     fileType: 'Image',
@@ -130,6 +137,7 @@ export const windowStore = {
                         isOpen: false,
                         isActive: false,
                         isMinimized: false,
+                        zIndex: 1,
                     },
                     shortcut: {
                         img: './img/icons/Painting.ico',

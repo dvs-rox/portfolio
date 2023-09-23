@@ -21,6 +21,7 @@ export default {
                 y: 100,
                 lockAspectRatio: true,
                 resizable: true,
+                zIndex: 5,
             }
         }
     },
@@ -28,6 +29,7 @@ export default {
     },
     beforeMount() {
         this.image = this.content
+        this.setDraggableProps()
     },
     methods: {
         setWindowDimensions({ target }) {

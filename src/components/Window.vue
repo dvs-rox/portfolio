@@ -4,7 +4,9 @@
         v-model:w="draggableProps.w" v-model:h="draggableProps.h" 
         v-model:lock-aspect-ratio="draggableProps.lockAspectRatio"
         v-model:resizable="draggableProps.resizable"
-        handles-type="borders">
+        :z="draggableProps.zIndex"
+        handles-type="borders"
+        :parent="true">
         <NavBar @minimize="minimizeWindow" @close="closeWindow" 
         :title="window.props.title" class="handle" />
         <component :is="window.fileType" :content="window.props.content"
@@ -29,7 +31,7 @@ export default {
                 y: 100,
                 lockAspectRatio: false,
                 resizable: true,
-                zIndex: 9,
+                zIndex: 1,
             }
         }
     },
@@ -60,7 +62,6 @@ export default {
             this.$emit('minimizeWindow', this.window._id)
         },
         onSetDraggableProps(props) {
-            console.log("🚀 ~ file: Window.vue:79 ~ onSetDraggableProps ~ props:",window.fileType , props)
             this.draggableProps = JSON.parse(JSON.stringify(props))
         },
         onUpdate() {

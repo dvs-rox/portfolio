@@ -6,7 +6,8 @@
         "content": "<h3>\ncelebrities we like\n</h3>",
         "isMinimized": false,
         "isOpen": false,
-        "component": "List"
+        "component": "List",
+        "zIndex":1
       },
       "shortcut": {
         "img": "/img/icons/Book.ico"
@@ -19,7 +20,8 @@
         "content": "/img/crystalPepsi.jpg",
         "isMinimized": false,
         "isOpen": false,
-        "component": "Image"
+        "component": "Image",
+        "zIndex":1
       },
       "shortcut": {
         "img": "/img/icons/Earth.ico"

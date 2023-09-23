@@ -11,6 +11,7 @@ export default {
         window: Object
     },
     mounted() {
+        console.log("🚀 ~ file: Shortcut.vue:15 ~ mounted ~ this.window:", this.window)
     },
     data() {
         return {

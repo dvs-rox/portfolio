@@ -1,9 +1,12 @@
 <template>
-    <section class="home-page parent">
-        <Window v-for="win in windows" :window="win" :key="win._id" @closeWindow="onCloseWindow" @minimizeWindow="onMinimizeWindow"
-            v-show="win && win.props.isOpen && !win.props.isMinimized" @update="onWindowUpdate"/>
-        <Shortcut v-for="win in windows" v-show="win" :window="win" :key="win._id" @expandWindow="onExpandWindow"
-            @openWindow="onOpenWindow" />
+    <section class="home-page">
+        <div class="desktop parent">
+            <Window v-for="win in windows" :window="win" :key="win._id" @closeWindow="onCloseWindow"
+                @minimizeWindow="onMinimizeWindow" v-show="win && win.props.isOpen && !win.props.isMinimized"
+                @update="onWindowUpdate" />
+            <Shortcut v-for="win in windows" v-show="win" :window="win" :key="win._id" @expandWindow="onExpandWindow"
+                @openWindow="onOpenWindow" />
+        </div>
         <Taskbar v-if="windows" :windows="windows" @expandWindow="toggleWindowMinimized" />
     </section>
 </template>
@@ -38,6 +41,7 @@ export default {
             this.$store.commit('expandWindow', windowId)
         },
         onOpenWindow(windowId) {
+            console.log("🚀 ~ file: HomePage.vue:44 ~ onOpenWindow ~ windowId:", windowId)
             this.$store.commit('openWindow', windowId)
         },
         onCloseWindow(windowId) {
