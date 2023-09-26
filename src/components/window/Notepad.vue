@@ -21,10 +21,10 @@ export default {
             draggableProps: {
                 w: 300,
                 h: 450,
-                x:90,
-                y:60,
-                lockAspectRatio: false,
-                resizable: true,
+                // x:90,
+                // y:60,
+                // lockAspectRatio: false,
+                // resizable: true,
             }
         }
     },

@@ -4,6 +4,7 @@
         v-model:w="draggableProps.w" v-model:h="draggableProps.h" 
         v-model:lock-aspect-ratio="draggableProps.lockAspectRatio"
         v-model:resizable="draggableProps.resizable"
+        :min-width="500"
         :z="draggableProps.zIndex"
         handles-type="borders"
         :parent="true">
@@ -27,8 +28,8 @@ export default {
             draggableProps: {
                 // w: 450,
                 // h: 500,
-                // x: 120,
-                // y: 100,
+                x: 120,
+                y: 100,
                 // lockAspectRatio: false,
                 // resizable: true,
                 // zIndex: 1,
@@ -62,10 +63,10 @@ export default {
             this.$emit('minimizeWindow', this.window._id)
         },
         onSetDraggableProps(props) {
-            console.log("🚀 ~ file: Window.vue:63 ~ onSetDraggableProps ~ this.draggableProps:", this.draggableProps)
-            console.log("🚀 ~ file: Window.vue:65 ~ onSetDraggableProps ~ props:", props)
-            this.draggableProps = JSON.parse(JSON.stringify(props))
-            console.log("🚀 ~ file: Window.vue:67 ~ onSetDraggableProps ~ this.draggableProps:", this.draggableProps)
+            Object.keys(props).forEach(key => {
+                this.draggableProps[key] = props[key]
+                // console.log("🚀 ~ file: Window.vue:67 ~ Object.keys ~ this.draggableProps[key]:", key, this.draggableProps[key])
+            });
         },
         onUpdate() {
             this.$emit('update', this.window)

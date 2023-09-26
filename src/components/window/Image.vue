@@ -15,13 +15,13 @@ export default {
             image: '',
             scale: 0.5,
             draggableProps: {
-                w: 450,
-                h: 500,
-                x: 120,
-                y: 100,
-                lockAspectRatio: true,
-                resizable: true,
-                zIndex: 5,
+                // w: 450,
+                // h: 500,
+                // x: 120,
+                // y: 100,
+                // lockAspectRatio: true,
+                // resizable: true,
+                // zIndex: 5,
             }
         }
     },

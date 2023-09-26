@@ -87,7 +87,9 @@ export const windowStore = {
                         isOpen: false,
                         isActive: false,
                         isMinimized: false,
-                        zIndex: 4,
+                        w:200,
+                        h:400,
+                        zIndex: 1,
                     },
                     shortcut: {
                         img: './img/icons/Book.ico',
@@ -103,7 +105,9 @@ export const windowStore = {
                         isOpen: false,
                         isActive: false,
                         isMinimized: false,
-                        zIndex: 3,
+                        w:422,
+                        h:750,
+                        zIndex: 1,
                     },
                     shortcut: {
                         img: './img/icons/Painting.ico',
@@ -119,7 +123,9 @@ export const windowStore = {
                         isOpen: false,
                         isActive: false,
                         isMinimized: false,
-                        zIndex: 2,
+                        w:400,
+                        h:400,
+                        zIndex: 5,
                     },
                     shortcut: {
                         img: './img/icons/Notepad.ico',
